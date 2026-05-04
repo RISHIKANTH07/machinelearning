@@ -8,7 +8,7 @@ from imblearn.over_sampling import RandomOverSampler
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import classification_report
 from sklearn.naive_bayes import GaussianNB
-data=pd.read_csv('cancerknn.csv')
+data=pd.read_csv('classification/Naivebayesclassificer/cancerknn.csv')
 df=pd.DataFrame(data)
 col=["diagnosis","radius_mean","texture_mean","perimeter_mean","area_mean","smoothness_mean","compactness_mean","concavity_mean","concave points_mean","symmetry_mean","fractal_dimension_mean","radius_se","texture_se","perimeter_se","area_se","smoothness_se","compactness_se","concavity_se","concave points_se","symmetry_se","fractal_dimension_se","radius_worst","texture_worst","perimeter_worst","area_worst","smoothness_worst","compactness_worst","concavity_worst","concave points_worst","symmetry_worst","fractal_dimension_worst",]
 df=df.drop(columns=["id"])
@@ -24,7 +24,7 @@ def scale_dataframe(dataframe,oversample):
         ros=RandomOverSampler()
         x,y=ros.fit_resample(x,y)
     data1=np.hstack((x,np.reshape(y,(len(y),1)))) 
-    data2=np.hstack((x,np.reshape(y,(len(y),1)))) 
+   
 
     return data1,x,y
 
